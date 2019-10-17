@@ -1,0 +1,33 @@
+{% load bootstrap3 %}
+{% load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+    {% if title %}
+    <title>instagram - {{title}}</title>
+    {% else %}
+    <title> instagram </title>
+    {% endif %}
+    {% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/bases.css' %}">
+    {% endblock %}
+
+</head>
+
+<body>
+    {% include "navbar.html" %}
+    <hr>
+    {% block content %} <h1 class='text-center',style="font-family: 'Abel', sans-serif;">a</h1>
+    {%endblock%}
+
+    {% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+
+</html>
