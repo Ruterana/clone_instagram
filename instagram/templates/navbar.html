@@ -1,19 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-        <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-    <img style=" text-align :center,100px; height: 100px;" src="http://sarahgardan.com/wp-content/uploads/ph/thumb-photostock-vector-instagram-icon-hipster-camera-social-media-vector-flat-illustration-black-icons-on-white-background.jpg "><b style="font-family: 'Cookie', cursive;font-size: 30pt">      | instagram</b></a>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="col-sm-4 col-md-">
+          <img style=" text-align :center,100px; height: 100px;" src="http://sarahgardan.com/wp-content/uploads/ph/thumb-photostock-vector-instagram-icon-hipster-camera-social-media-vector-flat-illustration-black-icons-on-white-background.jpg "><b
+            style="font-family: 'Cookie', cursive;font-size: 30pt" ,margin-left: 80px;> | Instagram</b></a>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          {% if user.is_authenticated %}
+          <ul>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                        <span class="caret"></span>
+                    </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="{%url 'welcome'%}">Home</a>
+                </li>
+                <li>
+                  <a href="/accounts/password/change">Change Password</a>
+                </li>
+                <li>
+                  <a href="/logout">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          {% else %}
+          <li>
+            <a class='btn btn-default' href="/accounts/login">Login</a>
+          </li>
+  
+          {% endif %}
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <a class="instagram"></a><img style=" text-align :center,100px; height: 30px;" src="https://static.thenounproject.com/png/169707-200.png"></a>
+
+          <a class="like"><img style=" text-align :center,100px; height: 30px;" src="https://image.flaticon.com/icons/svg/149/149217.svg"></a>
+          <a class="icons"><img style=" text-align :center,100px; height: 30px;" src="https://image.flaticon.com/icons/svg/747/747376.svg"></a>
+        </div>
+      </div>
+
     </div>
-    
-   
-  </div>
-</nav>
+  </nav>
 </body>
+
 </html>
