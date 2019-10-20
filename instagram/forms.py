@@ -3,5 +3,5 @@ from django import forms
 class NewpostForm(forms.ModelForm):
     class Meta:
         model = Image
-        exclude = ['image_caption','profile']
+        exclude = ['image_caption','profile','post']
        

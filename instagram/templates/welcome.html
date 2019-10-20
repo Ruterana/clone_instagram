@@ -4,18 +4,19 @@
 {{block.super}}
 
 <div class="container">
-        {%for image in images%}
         <div class="row">
-<h2 class="text-center">{{image.image_name}}</h2>
-    <img src="{{image.image_path.url}}" class="image-responsive" alt="">
+        {%for image in images%}
+        
+<!-- <h2 class="text-center">{{image.image_name}}</h2> -->
+    <img src="{{image.image_path.url}}"  alt="" style="height:100px">
     
             
             {% autoescape on %}
             {{image.caption| safe}}
             {% endautoescape %}
-        </div>
+        
         {%endfor%}
-    
     </div>
-     {% endblock %}
+    </div>
+{% endblock %}
     

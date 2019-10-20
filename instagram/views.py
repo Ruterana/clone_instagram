@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .forms import NewpostForm
 from  .models import Image,Profile
@@ -17,7 +17,7 @@ def welcome(request):
 def new_post(request):
     current_user = request.user
     if request.method == 'POST':
-        form = NewPostForm(request.POST, request.FILES)
+        form = NewpostForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.save(commit=False)
             image.user = current_user
