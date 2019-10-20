@@ -3,10 +3,10 @@ clone_instagram
 ## Author
 Charlene Niyitanga
 
-<!-- Description
-Instaclone is a clone of the website for the popular photo app Instagram(desktop version)
+## Description
+clone_instagram is a website for the popular photo app Instagram(desktop version)
 
-User Stories
+<!-- User Stories
 Sign in to the application to start using.
 Upload my pictures to the application.
 See my profile with all my pictures.
@@ -20,4 +20,4 @@ HTML and CSS
 Python
 Django
 Postgres
-Heroku for deployment -->
+Heroku for deployment --> -->
