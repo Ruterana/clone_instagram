@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from .forms import NewpostForm,NewProfileForm
 from  .models import Image,Profile
 from django.http  import HttpResponse
@@ -48,15 +49,27 @@ def viewprofile(request):
     current_user = request.user
     profile = Profile.objects.filter(user = current_user).first()
     return render(request,'viewprofile.html',{'profile':profile})
+# def search_results(request):
+
+#     if 'user' in request.GET and request.GET["user"]:
+#         search_term = request.GET.get("user")
+#         user = User.search_by_username(search_term)
+#         message = f"{search_term}"
+
+#         return render(request, 'all_photos/search.html',{"message":message,"image":images})
+
+#     else:
+#         message = "You haven't searched for any term"
+#         return render(request, 'all_photos/search.html',{"message":message})
 def search_results(request):
 
     if 'user' in request.GET and request.GET["user"]:
         search_term = request.GET.get("user")
-        user = User.search_by_username(search_term)
+        searched_users = Image.search_by_user(search_term)
         message = f"{search_term}"
 
-        return render(request, 'all_photos/search.html',{"message":message,"image":images})
+        return render(request, 'all-photos/search.html',{"message":message,"users": searched_users})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'all_photos/search.html',{"message":message})
+        return render(request, 'all-photos/search.html',{"message":message})

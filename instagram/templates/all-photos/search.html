@@ -1,24 +1,23 @@
-{%extends 'all_photos/base.html'%} 
+
+{%extends 'all-photos/base.html'%} 
 {% block content %}
 <div class="container">
 
   <div class="row">
-    {% if user %}
-      <h2>Found {{ user|length }} of searched term {{message}}</h2>
+    {% if users%}
+      <h2>Found {{ users|length }} of searched term {{message}}</h2>
     {% else %}
-     <h2> Found 0 user for the search term {{message}}</h2> 
+      <h2> Found 0 users for the search term {{message}}</h2>
     {% endif %}
 
-  </div> 
+  </div>
 
   <div class="row">
 
-  {% ifuser %}
+  {% if users %}
     {% for user in users %}
       <div class="col-sm-6 col-md-3">
-          <h2>{{user.username}}</h2>
-        
-      
+          <h1>{{user.username}}</h1>
       </div>
     {% endfor %}
   {% endif %}

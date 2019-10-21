@@ -18,6 +18,11 @@ class Image(models.Model):
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)
     likes= models.IntegerField(default=0)
     dislikes= models.IntegerField(default=0)
+
+    @classmethod
+    def search_by_user(cls,search_term):
+        username = cls.objects.filter(user__username__icontains=search_term)
+        return username
 class Comments(models.Model):
     comment = models.CharField(max_length = 250)
     posted_by = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True)
@@ -56,7 +61,4 @@ class Comments(models.Model):
     def update_profile(cls,id,value):
         cls.objects.filter(id = id).update(user_id = new_user)
 
-    @classmethod
-    def search_by_user(cls,search_term):
-        image= cls.objects.filter(user__username__contains=search_term)
-        return image
+    
