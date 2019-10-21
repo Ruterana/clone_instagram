@@ -7,4 +7,4 @@ class NewpostForm(forms.ModelForm):
 class NewProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        exclude = []      
+        exclude = ['user']      

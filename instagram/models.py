@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
       profile_image = models.ImageField(upload_to = 'pictures/')
       bio= models.CharField(max_length=30)
-
+      user= models.ForeignKey(User)
 class Image(models.Model):
     image_name= models.CharField(max_length=30)  
     image_caption = models.TextField()
@@ -57,10 +57,6 @@ class Comments(models.Model):
         cls.objects.filter(id = id).update(user_id = new_user)
 
     @classmethod
-    def search_by_profile(cls,username):
-        certain_user = cls.objects.filter(user__username__icontains = username)
-        return certain_user
-    # @classmethod
-    # def search_by_image_name(cls,search_term):
-    #     image= cls.objects.filter(image__image_name__contains=search_term)
-    #     return image
+    def search_by_user(cls,search_term):
+        image= cls.objects.filter(user__username__contains=search_term)
+        return image
