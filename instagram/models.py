@@ -15,8 +15,30 @@ class Image(models.Model):
     user= models.ForeignKey(User)
     post = HTMLField()
     image_path = models.ImageField(upload_to = 'pictures/')
+    profile = models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)
+    likes= models.IntegerField(default=0)
+    dislikes= models.IntegerField(default=0)
+class Comments(models.Model):
+    comment = models.CharField(max_length = 250)
+    posted_by = models.ForeignKey(Profile, on_delete=models.CASCADE, null = True)
+    commented_image = models.ForeignKey(Image, on_delete=models.CASCADE, null = True)
+
+    def save_comments(self):
+        self.save()
+
+    def delete_comments(self):
+        self.delete()
     
-    
+    def update_comment(self):
+        self.update()
+
+    def __str__(self):
+        return self.posted_by
+    @classmethod
+    def update_caption(cls,id,caption):
+        update_image = cls.objects.filter(id = id).update(image_caption = caption)
+        return update_image
+
     def __str__(self):
         return self.image_name
 
@@ -24,7 +46,21 @@ class Image(models.Model):
         self.save()
     def delete_image(self):
         self.delete()
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
+
     @classmethod
-    def search_by_image_name(cls,search_term):
-        image= cls.objects.filter(image__image_name__contains=search_term)
-        return image
+    def update_profile(cls,id,value):
+        cls.objects.filter(id = id).update(user_id = new_user)
+
+    @classmethod
+    def search_by_profile(cls,username):
+        certain_user = cls.objects.filter(user__username__icontains = username)
+        return certain_user
+    # @classmethod
+    # def search_by_image_name(cls,search_term):
+    #     image= cls.objects.filter(image__image_name__contains=search_term)
+    #     return image

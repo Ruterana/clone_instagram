@@ -28,3 +28,4 @@ def new_post(request):
     else:
         form = NewpostForm()
     return render(request, 'new_post.html', {"form": form})
+
