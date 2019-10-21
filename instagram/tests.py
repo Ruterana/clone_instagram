@@ -52,13 +52,13 @@ class ImageTestClass(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images)>0)
     
-    # def test_update_image(self):
-    #     self.cat3 = Image(image='cat3.jepg',name='cat3')
-    #     self.cat3.save_image()
-    #     cat3 =Image.objects.filter(name='cat3').first()
-    #     update= Image.objects.filter(id=cat3.id).update(name='cat3')
-    #     updated = Image.objects.filter(name = 'cat3').first()
-    #     self.assertNotEqual(cat3.name , updated.name)
+    def test_update_image(self):
+        self.cat3 = Image(image='cat3.jepg',name='cat3')
+        self.cat3.save_image()
+        cat3 =Image.objects.filter(name='cat3').first()
+        update= Image.objects.filter(id=cat3.id).update(name='cat3')
+        updated = Image.objects.filter(name = 'cat3').first()
+        self.assertNotEqual(cat3.name , updated.name)
 
     def test_delete_image(self):
         self.forest = Image(image='cat4.jepg',name='cat')
