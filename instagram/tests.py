@@ -60,11 +60,11 @@ class ImageTestClass(TestCase):
         updated = Image.objects.filter(name = 'cat3').first()
         self.assertNotEqual(cat3.name , updated.name)
 
-    # def test_delete_image(self):
-    #     self.forest = Image(image='cat4.jepg',name='cat')
-    #     self.forest.save_image()
-    #     cat4 = Image.objects.filter(name='cat4').first()
-    #     tree = Image.objects.filter(id =cat4.id).delete()
-    #     trees =Image.objects.all()
+    def test_delete_image(self):
+        self.forest = Image(image='cat4.jepg',name='cat')
+        self.forest.save_image()
+        cat4 = Image.objects.filter(name='cat4').first()
+        tree = Image.objects.filter(id =cat4.id).delete()
+        trees =Image.objects.all()
         
 
