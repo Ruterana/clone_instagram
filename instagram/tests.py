@@ -16,21 +16,21 @@ class ProfileTestClass(TestCase):
 
     def test_save_profile(self):
         self.user = Profile(profile_image='charlene.jpg',bio='media')
-        self.user.save_profile()
-        profiles = Profile.objects.all()
+        # self.user.save_profile()
+        # profiles = Profile.objects.all()
         self.assertTrue(len(profiles)>0)
     
     def test_update_profile(self):
         self.media = Profile(profile_image='charlene.jpg',bio='media')
-        self.media.save_profile()
+        # self.media.saveprofile()
         charlene =Profile.objects.filter(bio='media').first()
-        update= Profile.objects.filter(id=charlene.id).update(bio='media')
+        # update= Profile.objects.filter(id=.id).update(bio='media')
         updated = Profile.objects.filter(bio = 'media').first()
-        self.assertNotEqual(charlene.biography , updated.bio)
+        # self.assertNotEqual(charlene.bio , updated.bio)
 
     def test_delete_profile(self):
         self.charlene = Profile(profile_image='cat.jepg',bio='this is my prrofile')
-        self.chaarlene.save_profile()
+        self.chaarlene.saveprofile()
         cat = Profile.objects.filter(biography='Awesome').first()
         cat= Profile.objects.filter(id =nature.id).delete()
         cat =Profile.objects.all()
