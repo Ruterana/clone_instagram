@@ -2,31 +2,47 @@
 
 {% block content %}
 {{block.super}}
+<!DOCTYPE html>
+<html>
 
-<div class="container">
+<head>
+    <meta charset="utf-8">
+    <body >
+        <!-- class
+<div class="container"> -->
     
        
             
         {%for image in images%}
-        <div class="row">
+              
+<div class="card" style="margin-left:200px;margin-top:20px;box-shadow:0 4px 8px 0 black;width:50%;transition:0.3s"> 
+    <div class="container " style="border-top:1px;width:515px;height:200px"><br><br>
+        <a href="{%url 'profile'%}"><img src="../../static/photos/profile.jpg"  style="border-radius: 50%;height:100px;width:100px"><a href="{%url 'profile'%}">{{image.user}}</a>
+        </a>
+    </div>
+        <!-- <div class="row">
                 <div class="col-sm-4 col-md-3"></div>
                 <div>
-                <div class="col-sm-4 col-md-3">
+                <div class="col-sm-4 col-md-3"> -->
 
  <!-- <h2 class="text-center">{{image.image_name}}</h2><br> -->
+
  
-    <img src="{{image.image_path.url}}"  alt="" height="400">&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+    <img src="{{image.image_path.url}}"  alt="" width="514" style="margin-left:10px">&nbsp;&nbsp;&nbsp;&nbsp;
     
-            
+           <div class="row"> 
             {% autoescape on %}
             {{image.caption| safe}}
             {% endautoescape %}
         </div>
     </div>
-        <div class="col-sm-4 col-md-4"></div>
+        <div class="col-sm-4 col-md-4">
         </div>
         {%endfor%}
    
     </div>
+</div>
+    </body>
 {% endblock %}
     
