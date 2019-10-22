@@ -14,7 +14,8 @@ Follow other users and see their pictures on my timeline.
 Like a picture and leave a comment on it. 
  ## How to use
 To use clone_instagram, you must login/register. Once logged in, you will be able to see posts made by other users. You can add your own photos from your profile page. As a user you can also follow other users and view images posted by those users. You also have other option  to edit your profile and view the photos that you have posted.
-
+# profile
+When you want to add your profile  you have to click on user name that are on the default profile<br>and add your own profile and bio .
 ## Tech used
 HTML and CSS
 Python
