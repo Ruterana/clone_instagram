@@ -9,17 +9,20 @@
             
         {%for image in images%}
         <div class="row">
-                <div class="col-sm-4 col-md-4"></div>
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-4 col-md-3"></div>
+                <div>
+                <div class="col-sm-4 col-md-3">
 
- <h2 class="text-center">{{image.image_name}}</h2><br>
-    <img src="{{image.image_path.url}}"  alt="" style="height:100px"> <br>
+ <!-- <h2 class="text-center">{{image.image_name}}</h2><br> -->
+ 
+    <img src="{{image.image_path.url}}"  alt="" height="400">&nbsp;&nbsp;&nbsp;&nbsp;
     
             
             {% autoescape on %}
             {{image.caption| safe}}
             {% endautoescape %}
         </div>
+    </div>
         <div class="col-sm-4 col-md-4"></div>
         </div>
         {%endfor%}
