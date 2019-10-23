@@ -9,6 +9,8 @@ class Profile(models.Model):
       profile_image = models.ImageField(upload_to = 'pictures/')
       bio= models.CharField(max_length=30)
       user= models.ForeignKey(User)
+      def save_profile(self):
+          self.save()
 class Image(models.Model):
     image_name= models.CharField(max_length=30)  
     image_caption = models.TextField()

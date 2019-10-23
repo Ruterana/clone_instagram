@@ -18,6 +18,9 @@
     {% for user in users %}
       <div class="col-sm-6 col-md-3">
           <h1>{{user.username}}</h1>
+         <p>{{image.image_path.url}}</p> 
+
+
       </div>
     {% endfor %}
   {% endif %}
